@@ -39,6 +39,7 @@ public class PlayerBehaviour : MonoBehaviour
         CheckIndicator();
         CheckMovement();
         CheckJump();
+        CheckAnimation();
     }
 
     //this is to get the mouse position value in the world space (need to be used to calculate direction later on)
@@ -68,36 +69,30 @@ public class PlayerBehaviour : MonoBehaviour
     private void CheckMovement()
     {
         horizontalMovement = Input.GetAxis("Horizontal");
-
         transform.Translate(horizontalMovement * movementSpeed * Time.deltaTime, 0f, 0f);
-
         Vector3 characterScale = transform.localScale;
         if (isOnInteractive)
         {
             rb2D.velocity = Vector2.zero;
         }
-
         else
         {
             if(horizontalMovement < 0 )
             {
                 characterScale.x = -0.5f;
             }
-
             if(horizontalMovement > 0)
             {
                 characterScale.x = 0.5f;
             }
             transform.localScale = characterScale;
         }
-
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
     }
 
     //this is basic jump for the player with LEFT MOUSE BUTTON CLICK (can be replaced with spacebar)
     private void CheckJump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
         {
             jump = true;
             Debug.Log("IsJumping");
@@ -109,29 +104,20 @@ public class PlayerBehaviour : MonoBehaviour
                 rb2D.AddForce(indicatorDirection * jumpForceInteractive, ForceMode2D.Impulse);
                 isOnInteractive = false;
 
-                //animator.SetBool("IsJumping", true);
+                Debug.Log("click pls");
             }
             else if (groundChecker.isOnGround == true)
             {
                 //if not, can only perform normal jump if the player is on the ground
                 rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-
-
-
-                animator.SetBool("IsJumping", true);
-                //animator.SetBool("IsJumping", false);
-            }
-
-            else if (groundChecker.isOnGround == false)
-            {
-              //  animator.SetBool("IsJumping", false);
             }
         }
+    }
 
-        else if (groundChecker.isOnGround == true )
-        {
-          //  animator.SetBool("IsJumping", false);
-        }
+    private void CheckAnimation()
+    {
+        animator.SetBool("IsJumping", !groundChecker.isOnGround);
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
     }
 
     //this is basic trigger check to see if player is on the interactive object
