@@ -1,0 +1,1042 @@
+fileFormatVersion: 2
+guid: bbb86f1d02b181e4cb46ad42b822f64f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -586386871190911087
+    second: Elsa_Albedo_0
+  - first:
+      213: 4316353073450081162
+    second: Elsa_Albedo_1
+  - first:
+      213: 8851316628687282568
+    second: Elsa_Albedo_2
+  - first:
+      213: 5330488737876361587
+    second: Elsa_Albedo_3
+  - first:
+      213: -9194651507417036687
+    second: Elsa_Albedo_4
+  - first:
+      213: -310762852241211507
+    second: Elsa_Albedo_5
+  - first:
+      213: 1892153602700237164
+    second: Elsa_Albedo_6
+  - first:
+      213: 3769476743556204568
+    second: Elsa_Albedo_7
+  - first:
+      213: 7402298160938202732
+    second: Elsa_Albedo_8
+  - first:
+      213: -6962010166124404230
+    second: Elsa_Albedo_9
+  - first:
+      213: 6124831705616907227
+    second: Elsa_Albedo_10
+  - first:
+      213: 7106826807704533177
+    second: Elsa_Albedo_11
+  - first:
+      213: -8221990037758503609
+    second: Elsa_Albedo_12
+  - first:
+      213: -6249205330985178458
+    second: Elsa_Albedo_13
+  - first:
+      213: 7790743207308674675
+    second: Elsa_Albedo_14
+  - first:
+      213: 3378230296777365702
+    second: Elsa_Albedo_15
+  - first:
+      213: -3832962713474975614
+    second: Elsa_Albedo_16
+  - first:
+      213: -3428799262262934640
+    second: Elsa_Albedo_17
+  - first:
+      213: -4896951285934008037
+    second: Elsa_Albedo_18
+  - first:
+      213: 8645737683841824457
+    second: Elsa_Albedo_19
+  - first:
+      213: 2041474978153741077
+    second: Elsa_Albedo_20
+  - first:
+      213: -5851443664373102062
+    second: Elsa_Albedo_21
+  - first:
+      213: -7840376231007014752
+    second: Elsa_Albedo_22
+  - first:
+      213: 5532779518399192069
+    second: Elsa_Albedo_23
+  - first:
+      213: -5000602226511774084
+    second: Elsa_Albedo_24
+  - first:
+      213: -6626537446968495085
+    second: Elsa_Albedo_25
+  - first:
+      213: -1215065289209039748
+    second: Elsa_Albedo_26
+  - first:
+      213: 6915701170732806091
+    second: Elsa_Albedo_27
+  - first:
+      213: -8169931774861291739
+    second: Elsa_Albedo_28
+  - first:
+      213: -3323791726681978924
+    second: Elsa_Albedo_29
+  - first:
+      213: 7035220529842550897
+    second: Elsa_Albedo_30
+  - first:
+      213: 4790466897980797155
+    second: Elsa_Albedo_31
+  - first:
+      213: -1807417143296380143
+    second: Elsa_Albedo_32
+  - first:
+      213: -2397646875301469289
+    second: Elsa_Albedo_33
+  - first:
+      213: 7586667112093978463
+    second: Elsa_Albedo_34
+  - first:
+      213: 6894085992299467467
+    second: Elsa_Albedo_35
+  - first:
+      213: -3021286897021168035
+    second: Elsa_Albedo_36
+  - first:
+      213: -5033494531662269528
+    second: Elsa_Albedo_37
+  - first:
+      213: 982485051609278291
+    second: Elsa_Albedo_38
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Elsa_Albedo_0
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 642
+        width: 84
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19786b95f3cbcd7f0800000000000000
+      internalID: -586386871190911087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_1
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 642
+        width: 85
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8b58245044c6eb30800000000000000
+      internalID: 4316353073450081162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_2
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 642
+        width: 87
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 881e967d39136da70800000000000000
+      internalID: 8851316628687282568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_3
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 642
+        width: 85
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3714754d343b9f940800000000000000
+      internalID: 5330488737876361587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_4
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 643
+        width: 83
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 178c5ea5b29066080800000000000000
+      internalID: -9194651507417036687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_5
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 642
+        width: 92
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8f76c615d2ffabf0800000000000000
+      internalID: -310762852241211507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_6
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 642
+        width: 93
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c695c653da7424a10800000000000000
+      internalID: 1892153602700237164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_7
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 642
+        width: 152
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81883c0702fdf4430800000000000000
+      internalID: 3769476743556204568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_8
+      rect:
+        serializedVersion: 2
+        x: 1074
+        y: 642
+        width: 151
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c66bf3455fe3ab660800000000000000
+      internalID: 7402298160938202732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_9
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 642
+        width: 150
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af12f75e3a8f16f90800000000000000
+      internalID: -6962010166124404230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_10
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 464
+        width: 139
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdb785a4cf5cff450800000000000000
+      internalID: 6124831705616907227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_11
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 464
+        width: 139
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b8b379f35580a260800000000000000
+      internalID: 7106826807704533177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_12
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 464
+        width: 138
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7459a946f9f95ed80800000000000000
+      internalID: -8221990037758503609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_13
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 464
+        width: 140
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aaa6267cdc5649a0800000000000000
+      internalID: -6249205330985178458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_14
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 464
+        width: 139
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 376cbef7ba74e1c60800000000000000
+      internalID: 7790743207308674675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_15
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 464
+        width: 139
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c890e86e82e1ee20800000000000000
+      internalID: 3378230296777365702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_16
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 464
+        width: 98
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 288b10258b49ecac0800000000000000
+      internalID: -3832962713474975614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_17
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 464
+        width: 92
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09342becc357a60d0800000000000000
+      internalID: -3428799262262934640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_18
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 464
+        width: 92
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b19d28720c88a0cb0800000000000000
+      internalID: -4896951285934008037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_19
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 224
+        width: 88
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c6b99acd94dbf770800000000000000
+      internalID: 8645737683841824457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_20
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 267
+        width: 114
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51bb3ba2da6c45c10800000000000000
+      internalID: 2041474978153741077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_21
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 303
+        width: 119
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21ac4d15dfe7bcea0800000000000000
+      internalID: -5851443664373102062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_22
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 339
+        width: 130
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a03965ab53613390800000000000000
+      internalID: -7840376231007014752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_23
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 295
+        width: 94
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50c9db678a168cc40800000000000000
+      internalID: 5532779518399192069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_24
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 329
+        width: 130
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7efcb1f4ca4a9ab0800000000000000
+      internalID: -5000602226511774084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_25
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 303
+        width: 118
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3147e960d4fc904a0800000000000000
+      internalID: -6626537446968495085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_26
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 293
+        width: 130
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c74b9c1ae88332fe0800000000000000
+      internalID: -1215065289209039748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_27
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 224
+        width: 120
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcf2846e29189ff50800000000000000
+      internalID: 6915701170732806091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_28
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 253
+        width: 101
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52f473046529e9e80800000000000000
+      internalID: -8169931774861291739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_29
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 26
+        width: 84
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d70db7e8058fd1d0800000000000000
+      internalID: -3323791726681978924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_30
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 26
+        width: 122
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 178fcc53ccf12a160800000000000000
+      internalID: 7035220529842550897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_31
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 29
+        width: 122
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e0b96243482b7240800000000000000
+      internalID: 4790466897980797155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_32
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 26
+        width: 123
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1133edc2fa3cae6e0800000000000000
+      internalID: -1807417143296380143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_33
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 26
+        width: 92
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 793a4d4ced8d9bed0800000000000000
+      internalID: -2397646875301469289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_34
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 35
+        width: 122
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f0085ea81494960800000000000000
+      internalID: 7586667112093978463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_35
+      rect:
+        serializedVersion: 2
+        x: 819
+        y: 34
+        width: 130
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc2910efea6bcaf50800000000000000
+      internalID: 6894085992299467467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_36
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 34
+        width: 129
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d56d28a139b3216d0800000000000000
+      internalID: -3021286897021168035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_37
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 34
+        width: 151
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a3366d546f652ab0800000000000000
+      internalID: -5033494531662269528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elsa_Albedo_38
+      rect:
+        serializedVersion: 2
+        x: 1306
+        y: 26
+        width: 157
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3576d42f2fc72ad00800000000000000
+      internalID: 982485051609278291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
