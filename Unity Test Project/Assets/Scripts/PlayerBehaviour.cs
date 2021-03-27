@@ -9,12 +9,19 @@ public class PlayerBehaviour : MonoBehaviour
 
     //drag and drop the indicator in the scene
     public GameObject directionIndicator;
-    
-    //speed values for movement, normal jump, and bash
+
+    //Player Speed for movement
     public float movementSpeed;
+    public float runMultiplier;
+    float speed = 5f;
+    public GameObject runParticles;
+
+    //Normal jump, and bash
     public float jumpForce;
     public float jumpForceInteractive;
-    bool jump = false;
+
+    bool canJump;
+
 
     //other private variables
     private Rigidbody2D rb2D;
@@ -26,6 +33,8 @@ public class PlayerBehaviour : MonoBehaviour
     //Animation
     public Animator animator;
 
+    //Player dead
+    bool isDead;
 
 
     void Start()
@@ -40,6 +49,39 @@ public class PlayerBehaviour : MonoBehaviour
         CheckMovement();
         CheckJump();
         CheckAnimation();
+        
+        CheckonSprint();
+    }
+
+    private void CheckPlayerDead()
+    {
+        if(isDead == true)
+        {
+            //RESTART UI NEED ADD
+            //if (Input.GetKeyDown(KeyCode.R)) Application.LoadLevel(Application.loadedLevel);
+
+            return;
+        }
+    }
+
+    private void CheckOnBlink()
+    {
+        // need to do
+    }
+
+    private void CheckonSprint()
+    {
+        speed = Input.GetKey(KeyCode.LeftShift) ? movementSpeed * runMultiplier : movementSpeed;
+
+        if (Input.GetKey(KeyCode.LeftShift) && rb2D.velocity.x != 0 && groundChecker.isOnGround)
+        {
+            Debug.Log("test, Speed: " + speed + " Velocity: " + rb2D.velocity.x + "Ground Bool: " + groundChecker.isOnGround);
+            runParticles.SetActive(true);
+            //RUN ANIMATE TRUE --> CheckAnimation
+        }
+        else
+            runParticles.SetActive(false);
+            
     }
 
     //this is to get the mouse position value in the world space (need to be used to calculate direction later on)
@@ -79,10 +121,13 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if(horizontalMovement < 0 )
             {
+                rb2D.velocity = new Vector2(-speed, rb2D.velocity.y);
                 characterScale.x = -0.5f;
+                //Debug.Log("left");
             }
             if(horizontalMovement > 0)
             {
+                rb2D.velocity = new Vector2(speed, rb2D.velocity.y);
                 characterScale.x = 0.5f;
             }
             transform.localScale = characterScale;
@@ -94,9 +139,9 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
         {
-            jump = true;
-            Debug.Log("IsJumping");
             
+            Debug.Log("IsJumping");
+
             if (isOnInteractive == true)
             {
                 //if player is on the interactive, set rigidbody back to dynamic and apply force towards the indicator direction
@@ -110,7 +155,17 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 //if not, can only perform normal jump if the player is on the ground
                 rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                canJump = true;
             }
+
+            //ADD DOUBLE JUMP
+            else if (Input.GetButtonDown("Jump") && canJump)
+            {
+                rb2D.AddForce(Vector2.up * jumpForce * 2, ForceMode2D.Impulse);
+                canJump = true;
+            }
+            else
+                canJump = false;
         }
     }
 
