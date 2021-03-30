@@ -21,6 +21,13 @@ public class PlayerBehaviour : MonoBehaviour
     public float jumpForceInteractive;
 
     bool canJump;
+    public float timer;
+    public float maxTime = 0.1f;
+    public int curJump;
+    public int TotalJumps = 2;
+
+    public GameObject jumpsParticles;
+    public Transform playerfeet;
 
 
     //other private variables
@@ -36,6 +43,18 @@ public class PlayerBehaviour : MonoBehaviour
     //Player dead
     bool isDead;
 
+    //Air Control
+    private Vector2 m_WindVelocity = Vector2.zero;
+    private float m_AreaOfPlayer = 0;
+    public float airControl = 0.5f;
+
+    //GroundState
+    public enum GroundState 
+    { 
+        isGrounded, isJumping 
+    };
+
+    GroundState m_GroundState;
 
     void Start()
     {
@@ -48,6 +67,13 @@ public class PlayerBehaviour : MonoBehaviour
         CheckIndicator();
         CheckMovement();
         CheckJump();
+
+        switch (m_GroundState)
+        {
+            case GroundState.isGrounded: airControl = 1.0f; break;
+            case GroundState.isJumping: airControl = 0.5f; break;
+        }
+
         CheckAnimation();
         
         CheckonSprint();
@@ -110,6 +136,7 @@ public class PlayerBehaviour : MonoBehaviour
     //This is for basic player left and right movement
     private void CheckMovement()
     {
+
         horizontalMovement = Input.GetAxis("Horizontal");
         transform.Translate(horizontalMovement * movementSpeed * Time.deltaTime, 0f, 0f);
         Vector3 characterScale = transform.localScale;
@@ -121,13 +148,13 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if(horizontalMovement < 0 )
             {
-                rb2D.velocity = new Vector2(-speed, rb2D.velocity.y);
+                rb2D.velocity = new Vector2(-speed * airControl, rb2D.velocity.y);
                 characterScale.x = -0.5f;
                 //Debug.Log("left");
             }
             if(horizontalMovement > 0)
             {
-                rb2D.velocity = new Vector2(speed, rb2D.velocity.y);
+                rb2D.velocity = new Vector2(speed * airControl, rb2D.velocity.y);
                 characterScale.x = 0.5f;
             }
             transform.localScale = characterScale;
@@ -137,42 +164,70 @@ public class PlayerBehaviour : MonoBehaviour
     //this is basic jump for the player with LEFT MOUSE BUTTON CLICK (can be replaced with spacebar)
     private void CheckJump()
     {
-        if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
+        if ((Input.GetButtonDown("Jump") && curJump > 0) || Input.GetMouseButtonDown(0))
         {
-            
-            Debug.Log("IsJumping");
+            if(!groundChecker.isOnGround)
+            {
+                curJump--;
+                Instantiate(jumpsParticles, playerfeet.position, Quaternion.identity);
+                timer = 0;
+                canJump = true;
+                //Debug.Log("IsJumping");
+                //Debug.Log("after minus currentJump: " + curJump);
+            }
 
-            if (isOnInteractive == true)
+            if (isOnInteractive == true || Input.GetMouseButtonDown(0))
             {
                 //if player is on the interactive, set rigidbody back to dynamic and apply force towards the indicator direction
                 rb2D.bodyType = RigidbodyType2D.Dynamic;
                 rb2D.AddForce(indicatorDirection * jumpForceInteractive, ForceMode2D.Impulse);
                 isOnInteractive = false;
-
-                Debug.Log("click pls");
+                canJump = false;
+                Debug.Log("InteractiveJump");
             }
             else if (groundChecker.isOnGround == true)
             {
                 //if not, can only perform normal jump if the player is on the ground
-                rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                rb2D.AddForce(Vector2.up * jumpForce * 2, ForceMode2D.Impulse);
                 canJump = true;
+                timer = 0;
+                //Debug.Log("First Jump");
             }
 
             //ADD DOUBLE JUMP
-            else if (Input.GetButtonDown("Jump") && canJump)
+            else if (Input.GetButtonDown("Jump") && canJump && timer < maxTime)
             {
-                rb2D.AddForce(Vector2.up * jumpForce * 2, ForceMode2D.Impulse);
-                canJump = true;
+                timer += Time.deltaTime;
+                rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                //Debug.Log("Second Jump");
             }
             else
                 canJump = false;
         }
+
+        if (groundChecker.isOnGround)
+        {
+            curJump = TotalJumps;
+            Debug.Log("currentJump: " + curJump);
+        }
+            
     }
 
     private void CheckAnimation()
     {
         animator.SetBool("IsJumping", !groundChecker.isOnGround);
         animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
+    }
+
+    Vector2 ComputeAirForce(float Area)
+    {
+        var BaseInAirVelocity = m_WindVelocity - rb2D.velocity.normalized * rb2D.velocity.sqrMagnitude;
+
+        Area *= 0.5f;
+
+        const float TotalDrag = 1.5f;
+
+        return BaseInAirVelocity * (Area * TotalDrag);
     }
 
     //this is basic trigger check to see if player is on the interactive object
