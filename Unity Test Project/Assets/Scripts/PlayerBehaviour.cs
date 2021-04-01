@@ -67,6 +67,7 @@ public class PlayerBehaviour : MonoBehaviour
         CheckIndicator();
         CheckMovement();
         CheckJump();
+        CheckAnimation();
 
         switch (m_GroundState)
         {
@@ -74,9 +75,12 @@ public class PlayerBehaviour : MonoBehaviour
             case GroundState.isJumping: airControl = 0.5f; break;
         }
 
-        CheckAnimation();
-        
         CheckonSprint();
+    }
+
+    void SwitchStates(GroundState groundstates)
+    {
+        groundstates = m_GroundState;
     }
 
     private void CheckPlayerDead()
@@ -136,10 +140,10 @@ public class PlayerBehaviour : MonoBehaviour
     //This is for basic player left and right movement
     private void CheckMovement()
     {
-
         horizontalMovement = Input.GetAxis("Horizontal");
         transform.Translate(horizontalMovement * movementSpeed * Time.deltaTime, 0f, 0f);
         Vector3 characterScale = transform.localScale;
+        SwitchStates(GroundState.isGrounded);
         if (isOnInteractive)
         {
             rb2D.velocity = Vector2.zero;
@@ -166,6 +170,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if ((Input.GetButtonDown("Jump") && curJump > 0) || Input.GetMouseButtonDown(0))
         {
+            SwitchStates(GroundState.isJumping);
             if(!groundChecker.isOnGround)
             {
                 curJump--;
@@ -229,6 +234,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         return BaseInAirVelocity * (Area * TotalDrag);
     }
+
 
     //this is basic trigger check to see if player is on the interactive object
     private void OnTriggerEnter2D(Collider2D collision)
