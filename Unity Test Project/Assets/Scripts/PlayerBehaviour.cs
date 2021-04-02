@@ -45,7 +45,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     //Air Control
     private Vector2 m_WindVelocity = Vector2.zero;
-    private float m_AreaOfPlayer = 0;
     public float airControl = 0.5f;
 
     //GroundState
@@ -67,6 +66,7 @@ public class PlayerBehaviour : MonoBehaviour
         CheckIndicator();
         CheckMovement();
         CheckJump();
+
         CheckAnimation();
 
         switch (m_GroundState)
@@ -168,11 +168,13 @@ public class PlayerBehaviour : MonoBehaviour
     //this is basic jump for the player with LEFT MOUSE BUTTON CLICK (can be replaced with spacebar)
     private void CheckJump()
     {
-        if ((Input.GetButtonDown("Jump") && curJump > 0) || Input.GetMouseButtonDown(0))
+        
+        if (Input.GetButtonDown("Jump") && curJump > 0)
         {
             SwitchStates(GroundState.isJumping);
             if(!groundChecker.isOnGround)
             {
+                Debug.Log("test");
                 curJump--;
                 Instantiate(jumpsParticles, playerfeet.position, Quaternion.identity);
                 timer = 0;
