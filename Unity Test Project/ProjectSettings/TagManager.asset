@@ -7,6 +7,8 @@ TagManager:
   - Wind
   - grabbable
   - pushable
+  - shooter
+  - deadly
   layers:
   - Default
   - TransparentFX

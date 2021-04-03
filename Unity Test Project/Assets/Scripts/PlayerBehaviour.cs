@@ -15,6 +15,12 @@ public class PlayerBehaviour : MonoBehaviour
     public float runMultiplier;
     float speed = 5f;
     public GameObject runParticles;
+    float maxVelocity = 10f;
+    float force;
+
+    //Blink Variations
+    bool facingRight;
+    public float blinkDistance;
 
     //Normal jump, and bash
     public float jumpForce;
@@ -35,6 +41,7 @@ public class PlayerBehaviour : MonoBehaviour
     private Vector2 mouseWorldPosition;
     private Vector2 indicatorDirection;
     private float horizontalMovement;
+    float previousAxispos;
     private bool isOnInteractive;
 
     //Animation
@@ -42,6 +49,12 @@ public class PlayerBehaviour : MonoBehaviour
 
     //Player dead
     bool isDead;
+
+    //Player Lives
+    public int lives;
+    public bool isImmune;
+    public float immuneCounter;
+    public float immuneTime;
 
     //Air Control
     private Vector2 m_WindVelocity = Vector2.zero;
@@ -58,6 +71,7 @@ public class PlayerBehaviour : MonoBehaviour
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        
     }
 
     private void Update()
@@ -66,8 +80,12 @@ public class PlayerBehaviour : MonoBehaviour
         CheckIndicator();
         CheckMovement();
         CheckJump();
+        //Bash();
+        FixAirBehaviour();
+        CheckOnBlink();
 
         CheckAnimation();
+        Immune();
 
         switch (m_GroundState)
         {
@@ -78,9 +96,25 @@ public class PlayerBehaviour : MonoBehaviour
         CheckonSprint();
     }
 
+
     void SwitchStates(GroundState groundstates)
     {
         groundstates = m_GroundState;
+    }
+
+    void Immune()
+    {
+        if (isImmune)
+        {
+            immuneCounter -= Time.deltaTime;
+        }
+        if (immuneCounter <= 0)
+        {
+            isImmune = false;
+            immuneCounter = immuneTime;
+
+        }
+
     }
 
     private void CheckPlayerDead()
@@ -88,7 +122,7 @@ public class PlayerBehaviour : MonoBehaviour
         if(isDead == true)
         {
             //RESTART UI NEED ADD
-            //if (Input.GetKeyDown(KeyCode.R)) Application.LoadLevel(Application.loadedLevel);
+            //if (Input.GetKeyDown(KeyCode.R)) Application.LoadLevel(index: Application.loadedLevel);
 
             return;
         }
@@ -96,7 +130,14 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void CheckOnBlink()
     {
-        // need to do
+        Vector3 blink;
+
+        if (facingRight)
+            blink = new Vector3(blinkDistance, 0, 0);
+        else
+            blink = new Vector3(blinkDistance, 0, 0);
+
+        transform.position += blink;
     }
 
     private void CheckonSprint()
@@ -141,27 +182,31 @@ public class PlayerBehaviour : MonoBehaviour
     private void CheckMovement()
     {
         horizontalMovement = Input.GetAxis("Horizontal");
-        transform.Translate(horizontalMovement * movementSpeed * Time.deltaTime, 0f, 0f);
-        Vector3 characterScale = transform.localScale;
+        force = horizontalMovement * speed * rb2D.mass * airControl;
         SwitchStates(GroundState.isGrounded);
-        if (isOnInteractive)
+
+        if (horizontalMovement != 0)
+        {
+            rb2D.AddForce(new Vector2(force, 0));
+
+            if(horizontalMovement > 0)
+            {
+                transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            }
+            else if (horizontalMovement < 0)
+            {
+                transform.localScale = new Vector3(-0.5f, 0.5f, 1);
+            }
+        }
+
+        else if(isOnInteractive)
         {
             rb2D.velocity = Vector2.zero;
         }
-        else
+
+        else if (rb2D.velocity.x > maxVelocity || rb2D.velocity.x < -maxVelocity)
         {
-            if(horizontalMovement < 0 )
-            {
-                rb2D.velocity = new Vector2(-speed * airControl, rb2D.velocity.y);
-                characterScale.x = -0.5f;
-                //Debug.Log("left");
-            }
-            if(horizontalMovement > 0)
-            {
-                rb2D.velocity = new Vector2(speed * airControl, rb2D.velocity.y);
-                characterScale.x = 0.5f;
-            }
-            transform.localScale = characterScale;
+            force = 0;
         }
     }
 
@@ -174,7 +219,7 @@ public class PlayerBehaviour : MonoBehaviour
             SwitchStates(GroundState.isJumping);
             if(!groundChecker.isOnGround)
             {
-                Debug.Log("test");
+
                 curJump--;
                 Instantiate(jumpsParticles, playerfeet.position, Quaternion.identity);
                 timer = 0;
@@ -183,15 +228,7 @@ public class PlayerBehaviour : MonoBehaviour
                 //Debug.Log("after minus currentJump: " + curJump);
             }
 
-            if (isOnInteractive == true || Input.GetMouseButtonDown(0))
-            {
-                //if player is on the interactive, set rigidbody back to dynamic and apply force towards the indicator direction
-                rb2D.bodyType = RigidbodyType2D.Dynamic;
-                rb2D.AddForce(indicatorDirection * jumpForceInteractive, ForceMode2D.Impulse);
-                isOnInteractive = false;
-                canJump = false;
-                Debug.Log("InteractiveJump");
-            }
+
             else if (groundChecker.isOnGround == true)
             {
                 //if not, can only perform normal jump if the player is on the ground
@@ -220,10 +257,37 @@ public class PlayerBehaviour : MonoBehaviour
             
     }
 
+    void FixAirBehaviour()
+    {
+        if (!groundChecker.isOnGround && Input.GetAxisRaw("Horizontal") != previousAxispos)
+        {
+            movementSpeed = 0;        
+        }
+
+        previousAxispos = Input.GetAxisRaw("Horizontal");
+    }
+
+    void Bash()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            if (isOnInteractive == true)
+            {
+                //if player is on the interactive, set rigidbody back to dynamic and apply force towards the indicator direction
+                rb2D.bodyType = RigidbodyType2D.Dynamic;
+                rb2D.AddForce(indicatorDirection * jumpForceInteractive, ForceMode2D.Impulse);
+                isOnInteractive = false;
+                canJump = false;
+                Debug.Log("InteractiveJump");
+            }
+        }
+    }
+
     private void CheckAnimation()
     {
         animator.SetBool("IsJumping", !groundChecker.isOnGround);
         animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
+        //animator dead
     }
 
     Vector2 ComputeAirForce(float Area)
@@ -250,5 +314,54 @@ public class PlayerBehaviour : MonoBehaviour
             //isOnInteractive is then set to true to check the indicator, player movement, and player jump as done above
             isOnInteractive = true;
         }
+
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "deadly" && !isDead && lives <= 1 && !isImmune)
+        {
+            rb2D.velocity = Vector2.zero;
+            lives = 0;
+            StartCoroutine("ImmuneTime");
+            //Animation dead
+            rb2D.AddForce(new Vector2(0, 500));
+            isDead = true;
+            Debug.Log("Trigger: dead");
+        }
+
+        else if (collision.tag == "deadly" && lives > 1 && !isImmune)
+        {
+            lives--;
+            //animator immune
+            StartCoroutine("ImmuneTime");
+            isImmune = true;
+            Debug.Log("Trigger: live minus");
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "deadly" && !isDead && lives <=1 && !isImmune)
+        {
+            rb2D.velocity = Vector2.zero;
+            lives = 0;
+            
+            //Animation dead
+            rb2D.AddForce(new Vector2(0, 500));
+            isDead = true;
+
+            Debug.Log("Collision stay: dead");
+        }
+        else if (collision.gameObject.tag == "deadly" && lives > 1 && !isImmune)
+        {
+            lives--;
+            //animator immune
+            isImmune = true;
+
+            Debug.Log("Collision stay: lives minus" + lives);
+        }
+    }
+
+
 }
