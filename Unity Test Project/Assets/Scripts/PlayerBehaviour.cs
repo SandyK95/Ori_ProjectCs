@@ -80,7 +80,7 @@ public class PlayerBehaviour : MonoBehaviour
         CheckIndicator();
         CheckMovement();
         CheckJump();
-        //Bash();
+        Bash();
         FixAirBehaviour();
         CheckOnBlink();
 
@@ -219,41 +219,38 @@ public class PlayerBehaviour : MonoBehaviour
     //this is basic jump for the player with LEFT MOUSE BUTTON CLICK (can be replaced with spacebar)
     private void CheckJump()
     {
-        
-        if (Input.GetButtonDown("Jump") && curJump > 0)
+        SwitchStates(GroundState.isJumping);
+        if (Input.GetKeyDown(KeyCode.W) && !groundChecker.isOnGround && curJump > 0)
         {
-            SwitchStates(GroundState.isJumping);
-            if(!groundChecker.isOnGround)
-            {
 
-                curJump--;
-                Instantiate(jumpsParticles, playerfeet.position, Quaternion.identity);
-                timer = 0;
-                canJump = true;
-                //Debug.Log("IsJumping");
-                //Debug.Log("after minus currentJump: " + curJump);
-            }
-
-
-            else if (groundChecker.isOnGround == true)
-            {
-                //if not, can only perform normal jump if the player is on the ground
-                rb2D.AddForce(Vector2.up * jumpForce * 2, ForceMode2D.Impulse);
-                canJump = true;
-                timer = 0;
-                //Debug.Log("First Jump");
-            }
-
-            //ADD DOUBLE JUMP
-            else if (Input.GetButtonDown("Jump") && canJump && timer < maxTime)
-            {
-                timer += Time.deltaTime;
-                rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-                //Debug.Log("Second Jump");
-            }
-            else
-                canJump = false;
+            curJump--;
+            Instantiate(jumpsParticles, playerfeet.position, Quaternion.identity);
+            timer = 0;
+            canJump = true;
+            
+            //Debug.Log("IsJumping");
+            Debug.Log("after minus currentJump: " + curJump);
         }
+
+        else if (groundChecker.isOnGround == true && Input.GetKeyDown(KeyCode.W))
+        {
+            //if not, can only perform normal jump if the player is on the ground
+            rb2D.AddForce(Vector2.up * jumpForce * 2, ForceMode2D.Impulse);
+            
+            canJump = true;
+            timer = 0;
+            Debug.Log("First Jump");
+        }
+
+        else if (Input.GetKey(KeyCode.W) && canJump && timer < maxTime)
+        {
+            timer += Time.deltaTime;
+            rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            Debug.Log("Second Jump");
+        }
+
+        else
+            canJump = false;
 
         if (groundChecker.isOnGround)
         {
@@ -275,7 +272,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Bash()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (isOnInteractive == true)
             {
@@ -283,8 +280,6 @@ public class PlayerBehaviour : MonoBehaviour
                 rb2D.bodyType = RigidbodyType2D.Dynamic;
                 rb2D.AddForce(indicatorDirection * jumpForceInteractive, ForceMode2D.Impulse);
                 isOnInteractive = false;
-                canJump = false;
-                Debug.Log("InteractiveJump");
             }
         }
     }
@@ -314,9 +309,6 @@ public class PlayerBehaviour : MonoBehaviour
         //if player collide with an object with this InteractiveBehaviour
         if (collision.GetComponent<InteractiveBehaviour>() != null)
         {
-            //set rigidbody to kinematic so that it does not react to physics (such as gravity)
-            rb2D.bodyType = RigidbodyType2D.Kinematic;
-
             //isOnInteractive is then set to true to check the indicator, player movement, and player jump as done above
             isOnInteractive = true;
         }
