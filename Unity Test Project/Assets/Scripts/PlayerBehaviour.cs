@@ -199,6 +199,12 @@ public class PlayerBehaviour : MonoBehaviour
             }
         }
 
+        if (horizontalMovement == 0) 
+        { 
+            rb2D.velocity = new Vector2(0, rb2D.velocity.y); 
+        
+        }
+
         else if(isOnInteractive)
         {
             rb2D.velocity = Vector2.zero;
