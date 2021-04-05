@@ -8,8 +8,13 @@ public class Follower : MonoBehaviour
     GameObject  follower;
     Vector2     m_AccForce = Vector2.zero;
 
+    public GameObject followerBullet;
     public float m_Distance;
     public float m_Force;
+    public float shootingRate;
+    private float shootingRateCurrent;
+
+    private bool canShoot;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +40,13 @@ public class Follower : MonoBehaviour
             if (Mathf.Abs(rb.velocity.y) < 3)
                 m_AccForce += new Vector2(0, (Dir.y > 0) ? m_Force * 15 : -m_Force * 15) * rb.mass * Time.deltaTime;
         }
+
+        CheckTimer();
+        if (DetectIfEnemyNear() == true && canShoot == true)
+        {
+            SpawnBullet();
+            canShoot = false;
+        }
     }
 
     private void FixedUpdate()
@@ -46,5 +58,58 @@ public class Follower : MonoBehaviour
         rb.AddForce(Force + m_AccForce);
 
         m_AccForce = Vector2.zero;
+    }
+
+    private bool DetectIfEnemyNear()
+    {
+        GameObject[] arrayOfObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        //replace InteractiveBehaviour to enemy's behaviour next time
+        for (int i = 0; i < arrayOfObjects.Length; i++)
+        {
+            //change 5.0f to something. more value = further
+            if (Vector2.Distance(transform.position, arrayOfObjects[i].transform.position) < 5.0f)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private GameObject CheckNearestEnemy()
+    {
+        GameObject[] arrayOfObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        int savedArrayIndex = 0;
+        float nearestDistance = 0.0f;
+        //replace InteractiveBehaviour to enemy's behaviour next time
+        for (int i = 0; i < arrayOfObjects.Length; i++)
+        {
+            if (nearestDistance == 0.0f || Vector2.Distance(transform.position, arrayOfObjects[i].transform.position) < nearestDistance)
+            {
+                nearestDistance = Vector2.Distance(transform.position, arrayOfObjects[i].transform.position);
+                savedArrayIndex = i;
+            }
+        }
+        return arrayOfObjects[savedArrayIndex].gameObject;
+    }
+
+    private void SpawnBullet()
+    {
+        Instantiate(followerBullet, transform.position, Quaternion.identity).GetComponent<FollowerBulletBehaviour>().target = CheckNearestEnemy();
+    }
+
+    private void CheckTimer()
+    {
+        if (canShoot == false)
+        {
+            if (shootingRateCurrent < shootingRate)
+            {
+                shootingRateCurrent += Time.deltaTime;
+            }
+            else
+            {
+                canShoot = true;
+                shootingRateCurrent = 0.0f;
+            }
+        }
     }
 }

@@ -81,7 +81,7 @@ public class PlayerBehaviour : MonoBehaviour
         CheckMovement();
         CheckJump();
         Bash();
-        FixAirBehaviour();
+        //FixAirBehaviour();
         CheckOnBlink();
 
         CheckAnimation();
@@ -90,7 +90,7 @@ public class PlayerBehaviour : MonoBehaviour
         switch (m_GroundState)
         {
             case GroundState.isGrounded: airControl = 1.0f; break;
-            case GroundState.isJumping: airControl = 0.5f; break;
+            case GroundState.isJumping: airControl = 0.2f; break;
         }
 
         CheckonSprint();
@@ -184,12 +184,17 @@ public class PlayerBehaviour : MonoBehaviour
         horizontalMovement = Input.GetAxis("Horizontal");
         force = horizontalMovement * speed * rb2D.mass * airControl;
         SwitchStates(GroundState.isGrounded);
-
+        if (rb2D.velocity.x > maxVelocity || rb2D.velocity.x < -maxVelocity)
+        {
+            force = 0;
+        }
         if (horizontalMovement != 0)
         {
-            rb2D.AddForce(new Vector2(force, 0));
-
-            if(horizontalMovement > 0)
+            if (isOnInteractive == false)
+            {
+                rb2D.AddForce(new Vector2(force, 0));
+            }
+            if (horizontalMovement > 0)
             {
                 transform.localScale = new Vector3(0.5f, 0.5f, 1);
             }
@@ -198,21 +203,9 @@ public class PlayerBehaviour : MonoBehaviour
                 transform.localScale = new Vector3(-0.5f, 0.5f, 1);
             }
         }
-
-        if (horizontalMovement == 0) 
-        { 
-            rb2D.velocity = new Vector2(0, rb2D.velocity.y); 
-        
-        }
-
-        else if(isOnInteractive)
+        else if (groundChecker.isOnGround == true && isOnInteractive == false)
         {
-            rb2D.velocity = Vector2.zero;
-        }
-
-        else if (rb2D.velocity.x > maxVelocity || rb2D.velocity.x < -maxVelocity)
-        {
-            force = 0;
+            rb2D.velocity = new Vector2(0, rb2D.velocity.y);
         }
     }
 
@@ -220,42 +213,26 @@ public class PlayerBehaviour : MonoBehaviour
     private void CheckJump()
     {
         SwitchStates(GroundState.isJumping);
-        if (Input.GetKeyDown(KeyCode.W) && !groundChecker.isOnGround && curJump > 0)
+        if (Input.GetKeyDown(KeyCode.W))
         {
-
-            curJump--;
-            Instantiate(jumpsParticles, playerfeet.position, Quaternion.identity);
-            timer = 0;
-            canJump = true;
-            
-            //Debug.Log("IsJumping");
-            Debug.Log("after minus currentJump: " + curJump);
-        }
-
-        else if (groundChecker.isOnGround == true && Input.GetKeyDown(KeyCode.W))
-        {
-            //if not, can only perform normal jump if the player is on the ground
-            rb2D.AddForce(Vector2.up * jumpForce * 2, ForceMode2D.Impulse);
-            
-            canJump = true;
-            timer = 0;
-            Debug.Log("First Jump");
-        }
-
-        else if (Input.GetKey(KeyCode.W) && canJump && timer < maxTime)
-        {
-            timer += Time.deltaTime;
-            rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            Debug.Log("Second Jump");
-        }
-
-        else
-            canJump = false;
-
-        if (groundChecker.isOnGround)
-        {
-            curJump = TotalJumps;
-            Debug.Log("currentJump: " + curJump);
+            if (groundChecker.isOnGround)
+            {
+                //if not, can only perform normal jump if the player is on the ground
+                rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                curJump = TotalJumps;
+                timer = 0;
+                canJump = true;
+                Debug.Log("First Jump");
+            }
+            else if (curJump > 0)
+            {
+                rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                Instantiate(jumpsParticles, playerfeet.position, Quaternion.identity);
+                --curJump;
+                timer = 0;
+                canJump = true;
+                Debug.Log("Second Jump");
+            }
         }
             
     }
@@ -307,9 +284,11 @@ public class PlayerBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //if player collide with an object with this InteractiveBehaviour
-        if (collision.GetComponent<InteractiveBehaviour>() != null)
+        if (collision.GetComponent<InteractiveBehaviour>() != null && isOnInteractive == false)
         {
             //isOnInteractive is then set to true to check the indicator, player movement, and player jump as done above
+            rb2D.bodyType = RigidbodyType2D.Kinematic;
+            rb2D.velocity = Vector2.zero;
             isOnInteractive = true;
         }
 
