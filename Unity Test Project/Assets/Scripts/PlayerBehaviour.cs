@@ -49,7 +49,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     //Player dead
     bool isDead;
-    public GameObject restartText;
 
     //Player Lives
     public int lives;
@@ -82,6 +81,7 @@ public class PlayerBehaviour : MonoBehaviour
         CheckMovement();
         CheckJump();
         Bash();
+        //FixAirBehaviour();
         CheckOnBlink();
 
         CheckAnimation();
@@ -121,11 +121,9 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if(isDead == true)
         {
-            restartText.SetActive(true);
-            if(Input.GetKeyDown(KeyCode.R))
-            {
-                Application.LoadLevel(Application.loadedLevel);
-            }
+            //RESTART UI NEED ADD
+            //if (Input.GetKeyDown(KeyCode.R)) Application.LoadLevel(index: Application.loadedLevel);
+
             return;
         }
     }
@@ -239,6 +237,16 @@ public class PlayerBehaviour : MonoBehaviour
             
     }
 
+    void FixAirBehaviour()
+    {
+        if (!groundChecker.isOnGround && Input.GetAxisRaw("Horizontal") != previousAxispos)
+        {
+            movementSpeed = 0;        
+        }
+
+        previousAxispos = Input.GetAxisRaw("Horizontal");
+    }
+
     void Bash()
     {
         if (Input.GetMouseButtonDown(0))
@@ -258,6 +266,17 @@ public class PlayerBehaviour : MonoBehaviour
         animator.SetBool("IsJumping", !groundChecker.isOnGround);
         animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
         //animator dead
+    }
+
+    Vector2 ComputeAirForce(float Area)
+    {
+        var BaseInAirVelocity = m_WindVelocity - rb2D.velocity.normalized * rb2D.velocity.sqrMagnitude;
+
+        Area *= 0.5f;
+
+        const float TotalDrag = 1.5f;
+
+        return BaseInAirVelocity * (Area * TotalDrag);
     }
 
 
