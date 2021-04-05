@@ -18,10 +18,6 @@ public class PlayerBehaviour : MonoBehaviour
     float maxVelocity = 10f;
     float force;
 
-    //Blink Variations
-    bool facingRight;
-    public float blinkDistance;
-
     //Normal jump, and bash
     public float jumpForce;
     public float jumpForceInteractive;
@@ -81,8 +77,6 @@ public class PlayerBehaviour : MonoBehaviour
         CheckMovement();
         CheckJump();
         Bash();
-        //FixAirBehaviour();
-        CheckOnBlink();
 
         CheckAnimation();
         Immune();
@@ -126,18 +120,6 @@ public class PlayerBehaviour : MonoBehaviour
 
             return;
         }
-    }
-
-    private void CheckOnBlink()
-    {
-        Vector3 blink;
-
-        if (facingRight)
-            blink = new Vector3(blinkDistance, 0, 0);
-        else
-            blink = new Vector3(blinkDistance, 0, 0);
-
-        transform.position += blink;
     }
 
     private void CheckonSprint()
@@ -237,16 +219,6 @@ public class PlayerBehaviour : MonoBehaviour
             
     }
 
-    void FixAirBehaviour()
-    {
-        if (!groundChecker.isOnGround && Input.GetAxisRaw("Horizontal") != previousAxispos)
-        {
-            movementSpeed = 0;        
-        }
-
-        previousAxispos = Input.GetAxisRaw("Horizontal");
-    }
-
     void Bash()
     {
         if (Input.GetMouseButtonDown(0))
@@ -266,17 +238,6 @@ public class PlayerBehaviour : MonoBehaviour
         animator.SetBool("IsJumping", !groundChecker.isOnGround);
         animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
         //animator dead
-    }
-
-    Vector2 ComputeAirForce(float Area)
-    {
-        var BaseInAirVelocity = m_WindVelocity - rb2D.velocity.normalized * rb2D.velocity.sqrMagnitude;
-
-        Area *= 0.5f;
-
-        const float TotalDrag = 1.5f;
-
-        return BaseInAirVelocity * (Area * TotalDrag);
     }
 
 
