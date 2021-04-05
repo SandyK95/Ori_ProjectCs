@@ -1558,7 +1558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9127683023332334044, guid: 71e11ddf33eb16b43bcf83d6e40f0345, type: 3}
       propertyPath: m_Name
-      value: jewels_0 (1)
+      value: Enemy_Test2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71e11ddf33eb16b43bcf83d6e40f0345, type: 3}
@@ -2916,8 +2916,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 110735205148121944, guid: e486d5180aab4ff449348ba479c7dbbb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 110735205148121947, guid: e486d5180aab4ff449348ba479c7dbbb, type: 3}
+      propertyPath: followerBullet
+      value: 
+      objectReference: {fileID: 3189760613424334554, guid: 5af8a7d68882ba94995eac001fc33bc5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e486d5180aab4ff449348ba479c7dbbb, type: 3}
 --- !u!1001 &1371184760743660884
@@ -3057,10 +3061,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1065373027, guid: 71e11ddf33eb16b43bcf83d6e40f0345, type: 3}
-      propertyPath: numSprite
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 9127683023332334042, guid: 71e11ddf33eb16b43bcf83d6e40f0345, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.105432
@@ -3107,7 +3107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9127683023332334044, guid: 71e11ddf33eb16b43bcf83d6e40f0345, type: 3}
       propertyPath: m_Name
-      value: jewels_0
+      value: Enemy_Test
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71e11ddf33eb16b43bcf83d6e40f0345, type: 3}

@@ -10,12 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 9127683023332334042}
   - component: {fileID: 9127683023332334045}
-  - component: {fileID: 9127683023332334043}
   - component: {fileID: 9127683023332334040}
-  - component: {fileID: 1065373027}
   m_Layer: 0
-  m_Name: jewels_0
-  m_TagString: Untagged
+  m_Name: Enemy_Test
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,18 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9127683023332334043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9127683023332334044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fb6bde854fb2d94796a07347f32ad50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &9127683023332334040
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -123,18 +109,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08, y: 0.08}
   m_EdgeRadius: 0
---- !u!114 &1065373027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9127683023332334044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38dca6de7e7dfc6438a18c4cefc1401d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites: []
-  spritesName: jewels
-  numSprite: 0
