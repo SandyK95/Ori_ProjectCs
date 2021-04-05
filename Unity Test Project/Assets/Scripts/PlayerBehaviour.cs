@@ -240,7 +240,6 @@ public class PlayerBehaviour : MonoBehaviour
         //animator dead
     }
 
-
     //this is basic trigger check to see if player is on the interactive object
     private void OnTriggerEnter2D(Collider2D collision)
     {
