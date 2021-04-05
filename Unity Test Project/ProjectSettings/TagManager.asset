@@ -9,6 +9,7 @@ TagManager:
   - pushable
   - shooter
   - deadly
+  - Enemy
   layers:
   - Default
   - TransparentFX
