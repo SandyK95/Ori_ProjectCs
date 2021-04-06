@@ -45,6 +45,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     //Player dead
     bool isDead;
+    public GameObject restartText;
 
     //Player Lives
     public int lives;
@@ -115,8 +116,9 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if(isDead == true)
         {
-            //RESTART UI NEED ADD
-            //if (Input.GetKeyDown(KeyCode.R)) Application.LoadLevel(index: Application.loadedLevel);
+            restartText.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.R))
+                Application.LoadLevel(Application.loadedLevel);
 
             return;
         }
