@@ -71,7 +71,8 @@ public class PlayerBehaviour : MonoBehaviour
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
-        
+        //trailing effect
+        //InvokeRepeating("SpawnTrailPart", 0, 0.2f);
     }
 
     private void Update()
@@ -84,7 +85,7 @@ public class PlayerBehaviour : MonoBehaviour
         Shooting();
         CheckAnimation();
         Immune();
-
+        //SpawnTrailPart();
         switch (m_GroundState)
         {
             case GroundState.isGrounded: airControl = 1.0f; break;
@@ -308,6 +309,27 @@ public class PlayerBehaviour : MonoBehaviour
 
             Debug.Log("Collision stay: lives minus" + lives);
         }
+    }
+
+    void SpawnTrailPart()
+    {
+        GameObject trailPart = new GameObject();
+        SpriteRenderer trailPartRenderer = trailPart.AddComponent<SpriteRenderer>();
+        trailPartRenderer.sprite = GetComponent<SpriteRenderer>().sprite;
+        trailPart.transform.position = transform.position;
+        trailPart.transform.localScale = transform.localScale; // We forgot about this line!!!
+
+        StartCoroutine(FadeTrailPart(trailPartRenderer));
+        Destroy(trailPart, 0.5f); // replace 0.5f with needed lifeTime
+    }
+
+    IEnumerator FadeTrailPart(SpriteRenderer trailPartRenderer)
+    {
+        Color color = trailPartRenderer.color;
+        color.a -= 0.5f; // replace 0.5f with needed alpha decrement
+        trailPartRenderer.color = color;
+
+        yield return new WaitForEndOfFrame();
     }
 
 

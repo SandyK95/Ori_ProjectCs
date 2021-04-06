@@ -35,6 +35,6 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if(null != collision.GetComponent<>)
+        //if(null != collision.GetComponent<>) i need add enermy gameobject
     }
 }
