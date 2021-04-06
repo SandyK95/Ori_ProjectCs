@@ -57,6 +57,9 @@ public class PlayerBehaviour : MonoBehaviour
     private Vector2 m_WindVelocity = Vector2.zero;
     public float airControl = 0.5f;
 
+    //Shooting
+    public GameObject m_Bullet;
+
     //GroundState
     public enum GroundState 
     { 
@@ -78,7 +81,7 @@ public class PlayerBehaviour : MonoBehaviour
         CheckMovement();
         CheckJump();
         Bash();
-
+        Shooting();
         CheckAnimation();
         Immune();
 
@@ -233,6 +236,11 @@ public class PlayerBehaviour : MonoBehaviour
                 isOnInteractive = false;
             }
         }
+    }
+
+    void Shooting()
+    {
+        if (Input.GetKeyDown("z")) Instantiate(m_Bullet, transform.position, Quaternion.identity);
     }
 
     private void CheckAnimation()
