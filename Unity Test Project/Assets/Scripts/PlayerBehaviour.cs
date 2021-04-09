@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -50,7 +51,6 @@ public class PlayerBehaviour : MonoBehaviour
     //Player Lives
     public int lives;
     public bool isImmune;
-    public float immuneCounter;
     public float immuneTime;
 
     //Air Control
@@ -84,7 +84,6 @@ public class PlayerBehaviour : MonoBehaviour
         Bash();
         Shooting();
         CheckAnimation();
-        Immune();
         //SpawnTrailPart();
         switch (m_GroundState)
         {
@@ -93,6 +92,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         CheckonSprint();
+        CheckPlayerDead();
     }
 
 
@@ -101,19 +101,12 @@ public class PlayerBehaviour : MonoBehaviour
         groundstates = m_GroundState;
     }
 
-    void Immune()
+    IEnumerator ImmuneTime()
     {
-        if (isImmune)
-        {
-            immuneCounter -= Time.deltaTime;
-        }
-        if (immuneCounter <= 0)
-        {
-            isImmune = false;
-            immuneCounter = immuneTime;
+        yield return new WaitForSeconds(immuneTime);
+        isImmune = false;
 
-        }
-
+        //animator hurt
     }
 
     private void CheckPlayerDead()
@@ -122,7 +115,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             restartText.SetActive(true);
             if (Input.GetKeyDown(KeyCode.R))
-                Application.LoadLevel(Application.loadedLevel);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
             return;
         }
