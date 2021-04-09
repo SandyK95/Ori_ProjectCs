@@ -35,6 +35,10 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if(null != collision.GetComponent<>) i need add enermy gameobject
+        if (collision.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);//destroy collided enemy
+            Destroy(gameObject); //destroy self (bullet)
+        }
     }
 }

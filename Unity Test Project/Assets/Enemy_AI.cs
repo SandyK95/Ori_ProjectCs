@@ -41,24 +41,22 @@ public class Enemy_AI : MonoBehaviour
         m_Animator.Play(m_CurrAnim);
     }
 
-    //DetermineAnimation()
+    void DetermineAnimation()
+    {
+        if (m_RB.velocity.x < 0.01f && m_RB.velocity.x > -0.01f) return;
+
+        if (m_RB.velocity.x > 0) ChangeAnimationState(ANIM_RIGHT);
+        else ChangeAnimationState(ANIM_LEFT);
+    }
 
     void DetermineGold()
     {
         float Vx = m_Points[m_IndexCheckPoint].x - transform.position.x;
-        if (Mathf.Abs(Vx) < 1.3f)
-        {
-            m_IndexCheckPoint++;
-            if (m_IndexCheckPoint == m_Points.Length) m_IndexCheckPoint = 0;
-            DetermineGold();
-        }
-        else
-        {
-            if (m_RB.velocity.magnitude > MAX_SPEED && (m_RB.velocity.x * Vx) > 0) return;
 
-            if (Vx > 0) m_Force.x += Time.deltaTime * m_RB.mass * SPEED_FORCE;
-            else m_Force.x -= Time.deltaTime * m_RB.mass * SPEED_FORCE;
-        }
+        if (m_RB.velocity.magnitude > MAX_SPEED && (m_RB.velocity.x * Vx) > 0) return;
+
+        if (Vx > 0) m_Force.x += Time.deltaTime * m_RB.mass * SPEED_FORCE;
+        else m_Force.x -= Time.deltaTime * m_RB.mass * SPEED_FORCE;
     }
 
     // Update is called once per frame
@@ -67,7 +65,7 @@ public class Enemy_AI : MonoBehaviour
         if(m_SquashTimer < 0)
         {
             DetermineGold();
-            //DetermineAnimation();
+            DetermineAnimation();
         }
 
         else
