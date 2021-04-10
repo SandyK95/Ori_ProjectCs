@@ -256,16 +256,14 @@ public class PlayerBehaviour : MonoBehaviour
             isOnInteractive = true;
         }
 
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
         if (collision.tag == "deadly" && !isDead && lives <= 1 && !isImmune)
         {
             rb2D.velocity = Vector2.zero;
             lives = 0;
             StartCoroutine("ImmuneTime");
+
             //Animation dead
+            animator.SetBool("Dies", true);
             rb2D.AddForce(new Vector2(0, 500));
             isDead = true;
             Debug.Log("Trigger: dead");
@@ -279,9 +277,26 @@ public class PlayerBehaviour : MonoBehaviour
             isImmune = true;
             Debug.Log("Trigger: live minus");
         }
+
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "deadly" && !isDead && lives <= 1 && !isImmune)
+        {
+            rb2D.velocity = Vector2.zero;
+            lives = 0;
+            StartCoroutine("ImmuneTime");
+
+            //Animation dead
+            animator.SetBool("Dies", true);
+            rb2D.AddForce(new Vector2(0, 500));
+            isDead = true;
+            Debug.Log("Trigger: dead");
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "deadly" && !isDead && lives <=1 && !isImmune)
         {

@@ -19,6 +19,10 @@ public class Enemy_AI : MonoBehaviour
     const string ANIM_BEEN_SQUASH = "Enemy_BeenSquashed";
     const string ANIM_PUSH_PLAYER = "Enemy_PushPlayer";
 
+    public HealthBarBehaviour HealthBar;
+    public float HitPoints;
+    public float MaxHitPoints = 5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,15 +34,13 @@ public class Enemy_AI : MonoBehaviour
         m_Points[0].x -= 5;
 
         m_Points[1] = transform.position;
-        m_Points[1].x -= 5;
-        
-    }
+        m_Points[1].x += 5;
 
-    public void ChangeAnimationState(string Anim)
-    {
-        if (Anim == m_CurrAnim) return;
-        m_CurrAnim = Anim;
-        m_Animator.Play(m_CurrAnim);
+        
+        //Health Bar
+        HitPoints = MaxHitPoints;
+        HealthBar.SetHealth(HitPoints, MaxHitPoints);
+
     }
 
     void DetermineAnimation()
@@ -49,14 +51,43 @@ public class Enemy_AI : MonoBehaviour
         else ChangeAnimationState(ANIM_LEFT);
     }
 
+    public void ChangeAnimationState(string Anim)
+    {
+        if (Anim == m_CurrAnim) return;
+        m_CurrAnim = Anim;
+        m_Animator.Play(m_CurrAnim);
+    }
+
+
+
     void DetermineGold()
     {
         float Vx = m_Points[m_IndexCheckPoint].x - transform.position.x;
 
-        if (m_RB.velocity.magnitude > MAX_SPEED && (m_RB.velocity.x * Vx) > 0) return;
+        if (Mathf.Abs(Vx) < 1.3f)
+        {
+            m_IndexCheckPoint++;
+            if (m_IndexCheckPoint == m_Points.Length) m_IndexCheckPoint = 0;
+            DetermineGold();
+        }
+        else
+        {
+            if (m_RB.velocity.magnitude > MAX_SPEED && (m_RB.velocity.x * Vx) > 0) return;
 
-        if (Vx > 0) m_Force.x += Time.deltaTime * m_RB.mass * SPEED_FORCE;
-        else m_Force.x -= Time.deltaTime * m_RB.mass * SPEED_FORCE;
+            if (Vx > 0) m_Force.x += Time.deltaTime * m_RB.mass * SPEED_FORCE;
+            else m_Force.x -= Time.deltaTime * m_RB.mass * SPEED_FORCE;
+        }
+    }
+
+    public void TakeHit(float damange)
+    {
+        HitPoints -= damange;
+        HealthBar.SetHealth(HitPoints, MaxHitPoints);
+        if(HitPoints <= 0)
+        {
+            Destroy(gameObject);
+        }
+        //add another ones for been splashed
     }
 
     // Update is called once per frame

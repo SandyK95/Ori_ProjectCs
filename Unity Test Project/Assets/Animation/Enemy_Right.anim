@@ -39,7 +39,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.11666667
+        time: 0.13333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -48,16 +48,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.16666667
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.23333333
+        time: 0.2
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -78,9 +69,9 @@ AnimationClip:
       value: {fileID: 8596640243658272642, guid: 0debd641ca19e6542a7991b9d2d4d644, type: 3}
     - time: 0.06666667
       value: {fileID: -7642239419928554605, guid: 0debd641ca19e6542a7991b9d2d4d644, type: 3}
-    - time: 0.11666667
+    - time: 0.13333334
       value: {fileID: -3876759189950653258, guid: 0debd641ca19e6542a7991b9d2d4d644, type: 3}
-    - time: 0.16666667
+    - time: 0.2
       value: {fileID: -5720429097031363069, guid: 0debd641ca19e6542a7991b9d2d4d644, type: 3}
     attribute: m_Sprite
     path: 
@@ -117,7 +108,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.23333333
+    m_StopTime: 0.21666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -155,7 +146,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.11666667
+        time: 0.13333334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -164,16 +155,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.16666667
-        value: 1
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.23333333
+        time: 0.2
         value: 1
         inSlope: Infinity
         outSlope: Infinity

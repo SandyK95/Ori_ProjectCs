@@ -27,4 +27,15 @@ public class FollowerBulletBehaviour : MonoBehaviour
             Destroy(gameObject); //destroy self (bullet)
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var enemy = collision.collider.GetComponent<Enemy_AI>();
+        if (enemy)
+        {
+            enemy.TakeHit(1);
+        }
+
+        Destroy(gameObject);
+    }
 }
