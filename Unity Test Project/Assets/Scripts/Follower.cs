@@ -27,7 +27,7 @@ public class Follower : MonoBehaviour
     void Update()
     {
         var Dir = (follower.transform.position + new Vector3(0, m_Distance, 0)) - transform.position;
-
+        //transform.LookAt(follower.transform.position);
         if(Mathf.Abs(Dir.x) > 1)
         {
             if (Mathf.Abs(rb.velocity.x) < 3)
@@ -35,10 +35,11 @@ public class Follower : MonoBehaviour
                     * rb.mass * Time.deltaTime;
         }
 
-        else if(Mathf.Abs(rb.velocity.y) > 0.5f)
+        if (Mathf.Abs(Dir.y) > 1)
         {
             if (Mathf.Abs(rb.velocity.y) < 3)
-                m_AccForce += new Vector2(0, (Dir.y > 0) ? m_Force * 15 : -m_Force * 15) * rb.mass * Time.deltaTime;
+                m_AccForce += new Vector2(0, (Dir.y > 0) ? m_Force * 30 : -m_Force * 30)
+                    * rb.mass * Time.deltaTime;
         }
 
         CheckTimer();

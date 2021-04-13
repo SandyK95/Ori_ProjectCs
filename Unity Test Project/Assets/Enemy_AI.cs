@@ -121,23 +121,25 @@ public class Enemy_AI : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var RB = collision.attachedRigidbody;
-
-        Vector2 F;
-        F.x = RB.velocity.x > 0 ? 300 : -300;
-        F.y = 500;
-        F *= RB.mass;
-
-        RB.AddForce(F);
-
-        if(m_SquashTimer < 0)
+        if (RB != null)
         {
-            m_SquashTimer = 0;
-            ChangeAnimationState(ANIM_BEEN_SQUASH);
-        }
-        else
-        {
-            m_CurrAnim = string.Empty;
-            ChangeAnimationState(ANIM_PUSH_PLAYER);
+            Vector2 F;
+            F.x = RB.velocity.x > 0 ? 300 : -300;
+            F.y = 500;
+            F *= RB.mass;
+
+            RB.AddForce(F);
+
+            if (m_SquashTimer < 0)
+            {
+                m_SquashTimer = 0;
+                ChangeAnimationState(ANIM_BEEN_SQUASH);
+            }
+            else
+            {
+                m_CurrAnim = string.Empty;
+                ChangeAnimationState(ANIM_PUSH_PLAYER);
+            }
         }
     }
 }

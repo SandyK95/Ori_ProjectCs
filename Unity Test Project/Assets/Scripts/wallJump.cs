@@ -7,6 +7,7 @@ public class wallJump : MonoBehaviour
     public float distancee = 1f;
     PlayerBehaviour movement;
     public float speed = 2f;
+    public float forceAmount;
     bool wallJumping;
 
     // Start is called before the first frame update
@@ -18,12 +19,15 @@ public class wallJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Physics2D.queriesStartInColliders = false;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, distancee);
+        //Physics2D.queriesStartInColliders = false;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, (Vector2.right * transform.localScale.x).normalized, distancee);
 
-        if(Input.GetKeyDown(KeyCode.W) && !movement.groundChecker && hit.collider != null)
+        if(Input.GetKeyDown(KeyCode.W) && !movement.groundChecker.isOnGround && hit.collider != null)
         {
-            GetComponent<Rigidbody2D>().velocity = new Vector2(speed * hit.normal.x, speed);
+            GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+            GetComponent<Rigidbody2D>().AddForce(((Vector2.right * -transform.localScale.x).normalized * forceAmount) + (Vector2.up * forceAmount/2), ForceMode2D.Impulse);
+            //transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(speed * hit.normal.x, speed);
             //StartCoroutine("TurnIt");
         }
     }

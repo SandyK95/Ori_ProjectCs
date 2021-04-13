@@ -183,6 +183,28 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 transform.localScale = new Vector3(-0.5f, 0.5f, 1);
             }
+            //if (groundChecker.isOnGround == true)
+            //{
+            //    if (horizontalMovement > 0)
+            //    {
+            //        transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            //    }
+            //    else if (horizontalMovement < 0)
+            //    {
+            //        transform.localScale = new Vector3(-0.5f, 0.5f, 1);
+            //    }
+            //}
+            //else
+            //{
+            //    if (rb2D.velocity.x > 0)
+            //    {
+            //        transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            //    }
+            //    else if (rb2D.velocity.x < 0)
+            //    {
+            //        transform.localScale = new Vector3(-0.5f, 0.5f, 1);
+            //    }
+            //}
         }
         else if (groundChecker.isOnGround == true && isOnInteractive == false)
         {
@@ -244,23 +266,12 @@ public class PlayerBehaviour : MonoBehaviour
         //animator dead
     }
 
-    //this is basic trigger check to see if player is on the interactive object
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        //if player collide with an object with this InteractiveBehaviour
-        if (collision.GetComponent<InteractiveBehaviour>() != null && isOnInteractive == false)
-        {
-            //isOnInteractive is then set to true to check the indicator, player movement, and player jump as done above
-            rb2D.bodyType = RigidbodyType2D.Kinematic;
-            rb2D.velocity = Vector2.zero;
-            isOnInteractive = true;
-        }
-
         if (collision.tag == "deadly" && !isDead && lives <= 1 && !isImmune)
         {
             rb2D.velocity = Vector2.zero;
             lives = 0;
-            StartCoroutine("ImmuneTime");
 
             //Animation dead
             animator.SetBool("Dies", true);
@@ -275,18 +286,16 @@ public class PlayerBehaviour : MonoBehaviour
             //animator immune
             StartCoroutine("ImmuneTime");
             isImmune = true;
-            Debug.Log("Trigger: live minus");
+            Debug.Log("2 Trigger: live minus");
         }
-
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.tag == "deadly" && !isDead && lives <= 1 && !isImmune)
+        if (collision.gameObject.tag == "deadly" && !isDead && lives <= 1 && !isImmune)
         {
             rb2D.velocity = Vector2.zero;
             lives = 0;
-            StartCoroutine("ImmuneTime");
 
             //Animation dead
             animator.SetBool("Dies", true);
@@ -294,32 +303,32 @@ public class PlayerBehaviour : MonoBehaviour
             isDead = true;
             Debug.Log("Trigger: dead");
         }
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "deadly" && !isDead && lives <=1 && !isImmune)
-        {
-            rb2D.velocity = Vector2.zero;
-            lives = 0;
-            
-            //Animation dead
-            rb2D.AddForce(new Vector2(0, 500));
-            isDead = true;
-
-            Debug.Log("Collision stay: dead");
-        }
         else if (collision.gameObject.tag == "deadly" && lives > 1 && !isImmune)
         {
             lives--;
+            StartCoroutine("ImmuneTime");
             //animator immune
             isImmune = true;
-
-            Debug.Log("Collision stay: lives minus" + lives);
+            Debug.Log("1 Trigger: live minus");
         }
     }
 
-    void SpawnTrailPart()
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //if player collide with an object with this InteractiveBehaviour
+        if (collision.GetComponent<InteractiveBehaviour>() != null && isOnInteractive == false)
+        {
+            //isOnInteractive is then set to true to check the indicator, player movement, and player jump as done above
+            rb2D.bodyType = RigidbodyType2D.Kinematic;
+            rb2D.velocity = Vector2.zero;
+            isOnInteractive = true;
+        }
+    }
+
+
+        //Unnecessary
+        void SpawnTrailPart()
     {
         GameObject trailPart = new GameObject();
         SpriteRenderer trailPartRenderer = trailPart.AddComponent<SpriteRenderer>();
@@ -342,3 +351,50 @@ public class PlayerBehaviour : MonoBehaviour
 
 
 }
+
+////this is basic trigger check to see if player is on the interactive object
+//private void OnTriggerEnter2D(Collider2D collision)
+//{
+//    //if player collide with an object with this InteractiveBehaviour
+//    if (collision.GetComponent<InteractiveBehaviour>() != null && isOnInteractive == false)
+//    {
+//        //isOnInteractive is then set to true to check the indicator, player movement, and player jump as done above
+//        rb2D.bodyType = RigidbodyType2D.Kinematic;
+//        rb2D.velocity = Vector2.zero;
+//        isOnInteractive = true;
+//    }
+
+//    if (collision.tag == "deadly" && !isDead && lives <= 1 && !isImmune)
+//    {
+//        rb2D.velocity = Vector2.zero;
+
+//        //Animation dead
+//        animator.SetBool("Dies", true);
+//        rb2D.AddForce(new Vector2(0, 500));
+//        isDead = true;
+//        Debug.Log("Trigger: dead");
+//    }
+
+//}
+
+//private void OnCollisionEnter2D(Collision2D collision)
+//{
+//    if(collision.gameObject.tag == "deadly" && !isDead && lives <=1 && !isImmune)
+//    {
+//        rb2D.velocity = Vector2.zero;
+//        animator.SetBool("Dies", true);
+
+//        rb2D.AddForce(new Vector2(0, 500));
+//        isDead = true;
+
+//        Debug.Log("Collision stay: dead");
+//    }
+//    else if (collision.gameObject.tag == "deadly" && lives > 1 && !isImmune)
+//    {
+//        lives--;
+//        //animator immune
+//        isImmune = true;
+
+//        Debug.Log("Collision stay: lives minus" + lives);
+//    }
+//}

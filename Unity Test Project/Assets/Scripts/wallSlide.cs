@@ -15,26 +15,27 @@ public class wallSlide : MonoBehaviour
     void Start()
     {
         movement = GetComponent<PlayerBehaviour>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Physics2D.queriesStartInColliders = false;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right * transform.localScale.x, distance);
+        //Physics2D.queriesStartInColliders = false;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, (Vector2.right * transform.localScale.x).normalized, distance);
 
         if(onlyDown)
         {
-            if(!movement.groundChecker && hit.collider != null && GetComponent<Rigidbody2D>().velocity.y < speed)
+            if(!movement.groundChecker.isOnGround && hit.collider != null && GetComponent<Rigidbody2D>().velocity.y < speed)
             {
                 GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
             }
         }
         else
         {
-            if (!movement.groundChecker && hit.collider != null)
+            if (!movement.groundChecker.isOnGround && hit.collider != null)
             {
-                GetComponent<Rigidbody2D>().gravityScale = gravityScale;
+                GetComponent<Rigidbody2D>().gravityScale = 0;
             }
             else
                 GetComponent<Rigidbody2D>().gravityScale = 1;
