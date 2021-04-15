@@ -1,0 +1,658 @@
+fileFormatVersion: 2
+guid: 05f96ab9f48a99f419193476bc44cdaa
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6353534675578131335
+    second: Forrest03_Albedo_0
+  - first:
+      213: -1901446061598547559
+    second: Forrest03_Albedo_1
+  - first:
+      213: -5889804915536675909
+    second: Forrest03_Albedo_2
+  - first:
+      213: -1815200506264522966
+    second: Forrest03_Albedo_3
+  - first:
+      213: -3368259556903152652
+    second: Forrest03_Albedo_4
+  - first:
+      213: -1166873167926186897
+    second: Forrest03_Albedo_5
+  - first:
+      213: -8953159573556237323
+    second: Forrest03_Albedo_6
+  - first:
+      213: 7974811166859480426
+    second: Forrest03_Albedo_7
+  - first:
+      213: 7777798315349425296
+    second: Forrest03_Albedo_8
+  - first:
+      213: -8592983114121880083
+    second: Forrest03_Albedo_9
+  - first:
+      213: -2114169013202107257
+    second: Forrest03_Albedo_10
+  - first:
+      213: 8959204620949320825
+    second: Forrest03_Albedo_11
+  - first:
+      213: 7700428516231722015
+    second: Forrest03_Albedo_12
+  - first:
+      213: -1642399932167026966
+    second: Forrest03_Albedo_13
+  - first:
+      213: 4116122513967451078
+    second: Forrest03_Albedo_14
+  - first:
+      213: -1428055784150766981
+    second: Forrest03_Albedo_15
+  - first:
+      213: -6812318365917098831
+    second: Forrest03_Albedo_16
+  - first:
+      213: 5390287538317784435
+    second: Forrest03_Albedo_17
+  - first:
+      213: -5024001936368319935
+    second: Forrest03_Albedo_18
+  - first:
+      213: -7860037520250156119
+    second: Forrest03_Albedo_19
+  - first:
+      213: 6930379569197491899
+    second: Forrest03_Albedo_20
+  - first:
+      213: 1954406331390304532
+    second: Forrest03_Albedo_21
+  - first:
+      213: -5493858147392015772
+    second: Forrest03_Albedo_22
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Forrest03_Albedo_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 457
+        width: 452
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97ce90200e5b3d7a0800000000000000
+      internalID: -6353534675578131335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_1
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 516
+        width: 80
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9916ada91e4bc95e0800000000000000
+      internalID: -1901446061598547559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_2
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 516
+        width: 91
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbb361582a5334ea0800000000000000
+      internalID: -5889804915536675909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_3
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 516
+        width: 93
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2f6ef3c1cc1fc6e0800000000000000
+      internalID: -1815200506264522966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_4
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 516
+        width: 102
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f3197f57c98141d0800000000000000
+      internalID: -3368259556903152652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_5
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 516
+        width: 107
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6c23df390f6ecfe0800000000000000
+      internalID: -1166873167926186897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_6
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 257
+        width: 453
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fbeac0cdccffb380800000000000000
+      internalID: -8953159573556237323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_7
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 366
+        width: 77
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6d4a7ff0883cae60800000000000000
+      internalID: 7974811166859480426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_8
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 364
+        width: 88
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09cb809fb5a40fb60800000000000000
+      internalID: 7777798315349425296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_9
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 364
+        width: 93
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dedd5d1a2679fb880800000000000000
+      internalID: -8592983114121880083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_10
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 365
+        width: 102
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78443fcdb76f8a2e0800000000000000
+      internalID: -2114169013202107257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_11
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 366
+        width: 108
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 974f8b5822d755c70800000000000000
+      internalID: 8959204620949320825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_12
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 159
+        width: 66
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f14b748dfea6dda60800000000000000
+      internalID: 7700428516231722015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_13
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 158
+        width: 62
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae60f08a6f50539e0800000000000000
+      internalID: -1642399932167026966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_14
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 261
+        width: 426
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cb84094e976f1930800000000000000
+      internalID: 4116122513967451078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_15
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 166
+        width: 418
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7a604a94d68e2ce0800000000000000
+      internalID: -1428055784150766981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_16
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 182
+        width: 55
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bc44a61a88c571a0800000000000000
+      internalID: -6812318365917098831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_17
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 181
+        width: 80
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37575a605f52eca40800000000000000
+      internalID: 5390287538317784435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_18
+      rect:
+        serializedVersion: 2
+        x: 1149
+        y: 0
+        width: 42
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14244ef6bd8274ab0800000000000000
+      internalID: -5024001936368319935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_19
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 357
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ab4f3405898be290800000000000000
+      internalID: -7860037520250156119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_20
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 38
+        width: 198
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb624acdf77ad2060800000000000000
+      internalID: 6930379569197491899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_21
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 44
+        width: 183
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4112b4914327f1b10800000000000000
+      internalID: 1954406331390304532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forrest03_Albedo_22
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 52
+        width: 193
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46230566f15e1c3b0800000000000000
+      internalID: -5493858147392015772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

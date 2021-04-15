@@ -4825,7 +4825,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4883,5 +4883,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a9e144cbb8d6249af4f4a561f09eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestoryGameObject: {fileID: 178216971946573432}
   destoryTime: 0.3
