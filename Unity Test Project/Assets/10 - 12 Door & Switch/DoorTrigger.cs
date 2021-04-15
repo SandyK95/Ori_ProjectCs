@@ -7,7 +7,6 @@ public class DoorTrigger : MonoBehaviour {
 
 
 	public bool ignoreTrigger;
-	public bool isOpen = false;
 
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -15,10 +14,9 @@ public class DoorTrigger : MonoBehaviour {
 		if (ignoreTrigger)
 						return;
 
-		if (other.tag == "Follower" && isOpen == false)
+		if (other.tag == "Follower")
         {
 			door.DoorOpens();
-			isOpen = true;
 		}
 
 	}

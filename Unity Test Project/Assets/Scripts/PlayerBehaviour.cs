@@ -48,10 +48,6 @@ public class PlayerBehaviour : MonoBehaviour
     bool isDead;
     public GameObject restartText;
 
-    //Completed
-    public DoorTrigger DoorOpen;
-    public GameObject CompletedFaded;
-
     //Player Lives
     public int lives;
     public bool isImmune;
@@ -97,6 +93,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         CheckonSprint();
         CheckPlayerDead();
+
     }
 
 
@@ -125,13 +122,6 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    private void Completed()
-    {
-        if(DoorOpen.isOpen == true)
-        {
-            CompletedFaded.SetActive(true);
-        }
-    }
 
     private void CheckonSprint()
     {
