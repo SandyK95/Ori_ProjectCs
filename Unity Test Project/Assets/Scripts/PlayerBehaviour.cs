@@ -48,6 +48,10 @@ public class PlayerBehaviour : MonoBehaviour
     bool isDead;
     public GameObject restartText;
 
+    //Completed
+    public DoorTrigger DoorOpen;
+    public GameObject CompletedFaded;
+
     //Player Lives
     public int lives;
     public bool isImmune;
@@ -118,6 +122,14 @@ public class PlayerBehaviour : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
             return;
+        }
+    }
+
+    private void Completed()
+    {
+        if(DoorOpen.isOpen == true)
+        {
+            CompletedFaded.SetActive(true);
         }
     }
 

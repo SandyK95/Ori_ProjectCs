@@ -7,18 +7,7 @@ public class DoorTrigger : MonoBehaviour {
 
 
 	public bool ignoreTrigger;
-
-
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	public bool isOpen = false;
 
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -26,10 +15,13 @@ public class DoorTrigger : MonoBehaviour {
 		if (ignoreTrigger)
 						return;
 
-		if (other.tag == "Player")
-						door.DoorOpens ();
-
+		if (other.tag == "Follower" && isOpen == false)
+        {
+			door.DoorOpens();
+			isOpen = true;
 		}
+
+	}
 
 	void OnTriggerExit2D(Collider2D other){
 

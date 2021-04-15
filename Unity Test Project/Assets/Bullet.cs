@@ -31,6 +31,11 @@ public class Bullet : MonoBehaviour
         Vector2 ForceDir = Dir.normalized - m_RB.velocity.normalized;
 
         m_RB.AddForce(ForceDir * (m_RB.mass * 6200 * Time.deltaTime));
+
+        if(Dir == null)
+        {
+            return;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

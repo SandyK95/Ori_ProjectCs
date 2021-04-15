@@ -12,7 +12,11 @@ public class Sprits : MonoBehaviour
     void Start()
     {
         sprites = Resources.LoadAll<Sprite>(spritesName);
-        if (numSprite == -1) numSprite = Random.Range(0, sprites.Length);
-        GetComponent<SpriteRenderer>().sprite = sprites[numSprite];
+        if (numSprite == -1) 
+            numSprite = Random.Range(0, sprites.Length);
+        
+        else if (numSprite == 0)
+            numSprite = 0;
+        else GetComponent<SpriteRenderer>().sprite = sprites[numSprite];
     }
 }

@@ -9,6 +9,8 @@ TagManager:
   - pushable
   - shooter
   - deadly
+  - Enemy
+  - Follower
   layers:
   - Default
   - TransparentFX
